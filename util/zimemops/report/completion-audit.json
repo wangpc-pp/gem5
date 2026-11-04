@@ -1,0 +1,72 @@
+{
+    "scenarios": 128,
+    "wins_vs_best_rvv": 128,
+    "positive_scenarios": 120,
+    "wins_vs_best_rvv_positive": 120,
+    "roi_count": 1280,
+    "rvv_kernels": 8,
+    "sizes": [
+        0,
+        1,
+        8,
+        16,
+        32,
+        33,
+        64,
+        65,
+        128,
+        129,
+        256,
+        512,
+        1024,
+        4096,
+        16384,
+        65536
+    ],
+    "offsets": [
+        0,
+        1,
+        31,
+        63
+    ],
+    "modes": [
+        "warm",
+        "stream"
+    ],
+    "geomean_speedup_vs_best_rvv": 1.287297872990978,
+    "geomean_speedup_vs_scalar": 2.9963293572570695,
+    "worst_case": {
+        "mode": "warm",
+        "size": 4096,
+        "offset": 0,
+        "zimemops_cycles": 129.0625,
+        "best_rvv": "rvv-align-m8",
+        "rvv_cycles": 129.140625,
+        "scalar_cycles": 514.859375,
+        "speedup_vs_best_rvv": 1.0006053268765134,
+        "speedup_vs_scalar": 3.989225181598063
+    },
+    "validation_passed": 72,
+    "validation_total": 72,
+    "functional_cases_per_model": 10718,
+    "identical_repeat_cycle_results": 128,
+    "identical_hardware_configurations": 1280,
+    "hardware_fingerprint":
+        "5db22e560e1b0ac80df45e9e2243916a83e9031c32af824c43408add0954f10b",
+    "simulator_sha256":
+        "b10a549ffe295366ab0d0aeff342bc0994f8c016c8a74723d533698f927d323a",
+    "workload_sha256":
+        "81dfd3f57571674082b70be7d60f6956335c4e74d1ae0df7eaa276e8470403ea",
+    "implementation_source_sha256":
+        "6e3c465a32cd9c11f39437798e735f4d44afc6a2522351070a43e7ba7247c9fd",
+    "warm": {
+        "cases": 60,
+        "wins": 60,
+        "geomean_speedup_vs_best_rvv": 1.1361751143073586
+    },
+    "stream": {
+        "cases": 60,
+        "wins": 60,
+        "geomean_speedup_vs_best_rvv": 1.4585214840032206
+    }
+}

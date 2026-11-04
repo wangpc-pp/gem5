@@ -1,0 +1,62 @@
+{
+    "zimemops-stream-b64-u16-scalar8": {
+        "geomean_speedup_vs_best_rvv": 1.2872978729909783,
+        "wins": 120,
+        "nonzero_cases": 120,
+        "best_fixed_rvv": "rvv-align-m8",
+        "geomean_speedup_vs_best_fixed_rvv": 1.516669785584884,
+        "wins_vs_best_fixed_rvv": 120,
+        "min_speedup_vs_best_rvv": 1.0006053268765134,
+        "max_speedup_vs_best_rvv": 2.4112302380519717,
+        "fixed_rvv": {
+            "rvv-align-m1": {
+                "geomean_speedup": 1.6798956521633928,
+                "wins": 120,
+                "cases": 120,
+                "min_speedup": 1.145068928950159
+            },
+            "rvv-align-m2": {
+                "geomean_speedup": 1.5491997680984642,
+                "wins": 120,
+                "cases": 120,
+                "min_speedup": 1.0058041112454656
+            },
+            "rvv-align-m4": {
+                "geomean_speedup": 1.5408995880512197,
+                "wins": 120,
+                "cases": 120,
+                "min_speedup": 1.000906926652307
+            },
+            "rvv-align-m8": {
+                "geomean_speedup": 1.516669785584884,
+                "wins": 120,
+                "cases": 120,
+                "min_speedup": 1.0006053268765134
+            },
+            "rvv-m1": {
+                "geomean_speedup": 1.899319849989642,
+                "wins": 120,
+                "cases": 120,
+                "min_speedup": 1.1338882760004012
+            },
+            "rvv-m2": {
+                "geomean_speedup": 1.6231355718930498,
+                "wins": 120,
+                "cases": 120,
+                "min_speedup": 1.1574900544913582
+            },
+            "rvv-m4": {
+                "geomean_speedup": 1.6043442166142579,
+                "wins": 120,
+                "cases": 120,
+                "min_speedup": 1.0081212777476989
+            },
+            "rvv-m8": {
+                "geomean_speedup": 1.5925962441537316,
+                "wins": 120,
+                "cases": 120,
+                "min_speedup": 1.0043530834340992
+            }
+        }
+    }
+}

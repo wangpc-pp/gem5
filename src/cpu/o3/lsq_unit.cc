@@ -1293,8 +1293,29 @@ LSQUnit::trySendPacket(bool isLoad, PacketPtr data_pkt)
 
     LSQRequest *request = dynamic_cast<LSQRequest*>(data_pkt->senderState);
 
-    if (!lsq->cacheBlocked() &&
-        lsq->cachePortAvailable(isLoad)) {
+    // Keep refill traffic from taking a slot needed by an older line drain.
+    // The writeback iterator points at the oldest unsent store.
+    const bool management =
+        data_pkt->req->getFlags() & (Request::HTM_CMD | Request::TLBI_CMD);
+    const bool older_store =
+        isLoad && !management && storeWBIt.dereferenceable() &&
+        storeWBIt->valid() &&
+        storeWBIt->instruction()->seqNum < request->instruction()->seqNum &&
+        (!storeWBIt->hasRequest() || !storeWBIt->request()->isSent()) &&
+        (lsq->storePriorityEnabled() ||
+         (lsq->storeReserveActive() && storeWBIt->canWB() &&
+          !storeWBIt->completed() && storeWBIt->size()));
+    if (older_store) {
+        if (lsq->storePriorityEnabled()) {
+            lsq->recordStorePriorityStall();
+        } else {
+            lsq->recordStoreReserveStall();
+        }
+    }
+
+    if (!older_store && !lsq->cacheBlocked() &&
+        lsq->cachePortAvailable(isLoad) &&
+        lsq->dataBufferAvailable(data_pkt)) {
         if (!dcachePort->sendTimingReq(data_pkt)) {
             ret = false;
             cache_got_blocked = true;
@@ -1308,6 +1329,7 @@ LSQUnit::trySendPacket(bool isLoad, PacketPtr data_pkt)
             isStoreBlocked = false;
         }
         lsq->cachePortBusy(isLoad);
+        lsq->reserveDataBuffer(data_pkt);
         request->packetSent();
     } else {
         if (cache_got_blocked) {

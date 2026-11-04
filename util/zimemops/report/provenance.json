@@ -1,0 +1,1611 @@
+    {
+        "reference": {
+            "revision": "7ffcaaf438cb5d5791f7ebbf9874765b65b9995a",
+            "source_diff_sha256":
+                "7808946c70656b7c039f1f6415f8328533e9576af29a05659a453ede495ce8da",
+            "gem5_sha256":
+                "b10a549ffe295366ab0d0aeff342bc0994f8c016c8a74723d533698f927d323a",
+            "guest_argument_bytes": 128,
+            "simulator_build": {
+                "revision": "7ffcaaf438cb5d5791f7ebbf9874765b65b9995a",
+                "gem5_sha256":
+                    "b10a549ffe295366ab0d0aeff342bc0994f8c016c8a74723d533698f927d323a",
+                "source_diff_sha256":
+                    "069504e66e80cc97d4ecfd6f85d95acc68fe6c1620aebbc2b851477fe33c4c9f",
+                "implementation_source_sha256":
+                    "6e3c465a32cd9c11f39437798e735f4d44afc6a2522351070a43e7ba7247c9fd"
+            },
+            "workload_sha256":
+                "81dfd3f57571674082b70be7d60f6956335c4e74d1ae0df7eaa276e8470403ea",
+            "configuration_sha256":
+                "6bde2c77b6485f0f43f662165f9305914df0453d8285323ece1cf3e56652d7d8",
+            "arguments": {
+                "gem5": "/tmp/zimemops-store-pair/final.opt",
+                "binary": "/tmp/zimemops-next/bin/bench",
+                "out": "/tmp/zimemops-store-pair/final-matrix-reference",
+                "simulator_build": "/tmp/zimemops-store-pair/final-build.json",
+                "bytes": 64,
+                "pack": 32,
+                "buffers": 2,
+                "vlen": 256,
+                "no_coalesce": false,
+                "no_store_priority": false,
+                "store_priority": false,
+                "store_reserve": 1,
+                "reference": false,
+                "quad_batch": false,
+                "pair_control": false,
+                "scalar_threshold": 8,
+                "prefetch": "none",
+                "unroll": 16,
+                "sizes": [
+                    0,
+                    1,
+                    8,
+                    16,
+                    32,
+                    33,
+                    64,
+                    65,
+                    128,
+                    129,
+                    256,
+                    512,
+                    1024,
+                    4096,
+                    16384,
+                    65536
+                ],
+                "offsets": [
+                    0,
+                    1,
+                    31,
+                    63
+                ],
+                "modes": [
+                    "warm",
+                    "stream"
+                ],
+                "methods": [
+                    "scalar",
+                    "rvv-m1",
+                    "rvv-m2",
+                    "rvv-m4",
+                    "rvv",
+                    "rvv-align-m1",
+                    "rvv-align-m2",
+                    "rvv-align-m4",
+                    "rvv-align-m8"
+                ],
+                "jobs": 16,
+                "timeout": 1800,
+                "resume": true
+            }
+        },
+        "zimemops": {
+            "revision": "7ffcaaf438cb5d5791f7ebbf9874765b65b9995a",
+            "source_diff_sha256":
+                "069504e66e80cc97d4ecfd6f85d95acc68fe6c1620aebbc2b851477fe33c4c9f",
+            "gem5_sha256":
+                "b10a549ffe295366ab0d0aeff342bc0994f8c016c8a74723d533698f927d323a",
+            "guest_argument_bytes": 128,
+            "simulator_build": {
+                "revision": "7ffcaaf438cb5d5791f7ebbf9874765b65b9995a",
+                "gem5_sha256":
+                    "b10a549ffe295366ab0d0aeff342bc0994f8c016c8a74723d533698f927d323a",
+                "source_diff_sha256":
+                    "069504e66e80cc97d4ecfd6f85d95acc68fe6c1620aebbc2b851477fe33c4c9f",
+                "implementation_source_sha256":
+                    "6e3c465a32cd9c11f39437798e735f4d44afc6a2522351070a43e7ba7247c9fd"
+            },
+            "workload_sha256":
+                "81dfd3f57571674082b70be7d60f6956335c4e74d1ae0df7eaa276e8470403ea",
+            "configuration_sha256":
+                "6bde2c77b6485f0f43f662165f9305914df0453d8285323ece1cf3e56652d7d8",
+            "arguments": {
+                "gem5": "/tmp/zimemops-store-pair/final.opt",
+                "binary": "/tmp/zimemops-next/bin/bench",
+                "out": "/tmp/zimemops-store-pair/final-verified-zimemops",
+                "simulator_build": "/tmp/zimemops-store-pair/final-build.json",
+                "bytes": 64,
+                "pack": 32,
+                "buffers": 2,
+                "vlen": 256,
+                "no_coalesce": false,
+                "no_store_priority": false,
+                "store_priority": false,
+                "store_reserve": 1,
+                "reference": false,
+                "quad_batch": false,
+                "pair_control": false,
+                "scalar_threshold": 8,
+                "prefetch": "none",
+                "unroll": 16,
+                "sizes": [
+                    0,
+                    1,
+                    8,
+                    16,
+                    32,
+                    33,
+                    64,
+                    65,
+                    128,
+                    129,
+                    256,
+                    512,
+                    1024,
+                    4096,
+                    16384,
+                    65536
+                ],
+                "offsets": [
+                    0,
+                    1,
+                    31,
+                    63
+                ],
+                "modes": [
+                    "warm",
+                    "stream"
+                ],
+                "methods": [
+                    "zimemops"
+                ],
+                "jobs": 12,
+                "timeout": 1800,
+                "resume": false
+            }
+        },
+        "build": {
+            "revision": "7ffcaaf438cb5d5791f7ebbf9874765b65b9995a",
+            "gem5_sha256":
+                "b10a549ffe295366ab0d0aeff342bc0994f8c016c8a74723d533698f927d323a",
+            "source_diff_sha256":
+                "069504e66e80cc97d4ecfd6f85d95acc68fe6c1620aebbc2b851477fe33c4c9f",
+            "implementation_source_sha256":
+                "6e3c465a32cd9c11f39437798e735f4d44afc6a2522351070a43e7ba7247c9fd"
+        },
+        "hardware":
+            {
+                "cpu":
+                    [
+                        {
+                            "cacheLoadPorts": 1,
+                            "cacheStorePorts": 1,
+                            "lsqDataBufferSlots": 4,
+                            "lsqDataBufferSlotBytes": 32,
+                            "lsqStoreReserveSlots": 1,
+                            "numPhysIntRegs": 256,
+                            "numPhysFloatRegs": 256,
+                            "numPhysVecRegs": 256,
+                            "numROBEntries": 192,
+                            "LQEntries": 32,
+                            "SQEntries": 32,
+                            "fetchWidth": 4,
+                            "decodeWidth": 4,
+                            "renameWidth": 4,
+                            "dispatchWidth": 4,
+                            "issueWidth": 4,
+                            "wbWidth": 4,
+                            "commitWidth": 4,
+                            "recvRespThrottling": true,
+                            "recvRespMaxCachelines": 2,
+                            "recvRespBufferSize": 32,
+                            "vecMemPackWidth": 32,
+                            "decoupledFrontEnd": false,
+                            "clk_domain": "board.processor.clk_domain",
+                            "fu_units":
+                                [
+                                    {
+                                        "count": 6,
+                                        "ops": [
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList00.opList",
+                                                "eventq_index": 0,
+                                                "opClass": "IntAlu",
+                                                "opLat": 1,
+                                                "pipelined": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "count": 2,
+                                        "ops": [
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList0",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList01.opList0",
+                                                "eventq_index": 0,
+                                                "opClass": "IntMult",
+                                                "opLat": 3,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList1",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList01.opList1",
+                                                "eventq_index": 0,
+                                                "opClass": "IntDiv",
+                                                "opLat": 20,
+                                                "pipelined": false
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "count": 4,
+                                        "ops": [
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList0",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList02.opList0",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatAdd",
+                                                "opLat": 2,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList1",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList02.opList1",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatCmp",
+                                                "opLat": 2,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList2",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList02.opList2",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatCvt",
+                                                "opLat": 2,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList3",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList02.opList3",
+                                                "eventq_index": 0,
+                                                "opClass": "Bf16Cvt",
+                                                "opLat": 2,
+                                                "pipelined": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "count": 2,
+                                        "ops": [
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList0",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList03.opList0",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatMult",
+                                                "opLat": 4,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList1",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList03.opList1",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatMultAcc",
+                                                "opLat": 5,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList2",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList03.opList2",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatMisc",
+                                                "opLat": 3,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList3",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList03.opList3",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatDiv",
+                                                "opLat": 12,
+                                                "pipelined": false
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList4",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList03.opList4",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatSqrt",
+                                                "opLat": 24,
+                                                "pipelined": false
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "count": 1,
+                                        "ops":
+                                            [
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList00",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList04.opList00",
+                                                    "eventq_index": 0,
+                                                    "opClass": "MemRead",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList01",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList04.opList01",
+                                                    "eventq_index": 0,
+                                                    "opClass": "FloatMemRead",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList02",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList04.opList02",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdUnitStrideLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList03",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList04.opList03",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdUnitStrideMaskLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList04",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList04.opList04",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdUnitStrideSegmentedLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList05",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList04.opList05",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdStridedLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList06",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList04.opList06",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdIndexedLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList07",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList04.opList07",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdUnitStrideFaultOnlyFirstLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList08",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList04.opList08",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdUnitStrideSegmentedFaultOnlyFirstLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList09",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList04.opList09",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdWholeRegisterLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList10",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList04.opList10",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdStrideSegmentedLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                }
+                                            ]
+                                    },
+                                    {
+                                        "count": 4,
+                                        "ops":
+                                            [
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList00",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList00",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdAdd",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList01",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList01",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdAddAcc",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList02",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList02",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdAlu",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList03",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList03",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdCmp",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList04",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList04",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdCvt",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList05",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList05",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdMisc",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList06",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList06",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdMult",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList07",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList07",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdMultAcc",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList08",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList08",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdMatMultAcc",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList09",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList09",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdShift",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList10",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList10",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdShiftAcc",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList11",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList11",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdDiv",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList12",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList12",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdSqrt",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList13",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList13",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdFloatAdd",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList14",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList14",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdFloatAlu",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList15",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList15",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdFloatCmp",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList16",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList16",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdFloatCvt",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList17",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList17",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdFloatDiv",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList18",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList18",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdFloatMisc",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList19",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList19",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdFloatMult",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList20",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList20",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdFloatMultAcc",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList21",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList21",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdFloatMatMultAcc",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList22",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList22",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdFloatSqrt",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList23",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList23",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdReduceAdd",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList24",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList24",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdReduceAlu",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList25",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList25",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdReduceCmp",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList26",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList26",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdFloatReduceAdd",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList27",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList27",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdFloatReduceCmp",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList28",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList28",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdExt",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList29",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList29",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdFloatExt",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList30",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList05.opList30",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdConfig",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList31",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList31",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdDotProd",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList32",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList32",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdAes",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList33",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList33",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdAesMix",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList34",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList34",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdSha1Hash",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList35",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList35",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdSha1Hash2",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList36",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList36",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdSha256Hash",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList37",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList37",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdSha256Hash2",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList38",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList38",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdShaSigma2",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList39",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList39",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdShaSigma3",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList40",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList40",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdSha512Hash",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList41",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList41",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdSha3",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList42",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList42",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdSm3",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList43",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList43",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdSm4e",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList44",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList44",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdCrc",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList45",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList45",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdBf16Add",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList46",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList46",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdBf16Cmp",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList47",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList47",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdBf16Cvt",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList48",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList48",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdBf16DotProd",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList49",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList49",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdBf16MatMultAcc",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList50",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList50",
+                                                    "eventq_index": 0,
+                                                    "opClass": "SimdBf16Mult",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList51",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList05.opList51",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdBf16MultAcc",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                }
+                                            ]
+                                    },
+                                    {
+                                        "count": 1,
+                                        "ops": [
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList0",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList06.opList0",
+                                                "eventq_index": 0,
+                                                "opClass": "Matrix",
+                                                "opLat": 1,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList1",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList06.opList1",
+                                                "eventq_index": 0,
+                                                "opClass": "MatrixMov",
+                                                "opLat": 1,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList2",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList06.opList2",
+                                                "eventq_index": 0,
+                                                "opClass": "MatrixOP",
+                                                "opLat": 1,
+                                                "pipelined": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "count": 1,
+                                        "ops": [
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList07.opList",
+                                                "eventq_index": 0,
+                                                "opClass": "System",
+                                                "opLat": 1,
+                                                "pipelined": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "count": 1,
+                                        "ops": [
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList08.opList",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdPredAlu",
+                                                "opLat": 1,
+                                                "pipelined": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "count": 1,
+                                        "ops": [
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList0",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList09.opList0",
+                                                "eventq_index": 0,
+                                                "opClass": "MemWrite",
+                                                "opLat": 1,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList1",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList09.opList1",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatMemWrite",
+                                                "opLat": 1,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList2",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList09.opList2",
+                                                "eventq_index": 0,
+                                                "opClass":
+                                                    "SimdUnitStrideStore",
+                                                "opLat": 1,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList3",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList09.opList3",
+                                                "eventq_index": 0,
+                                                "opClass":
+                                                    "SimdUnitStrideMaskStore",
+                                                "opLat": 1,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList4",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList09.opList4",
+                                                "eventq_index": 0,
+                                                "opClass":
+                                                    "SimdUnitStrideSegmentedStore",
+                                                "opLat": 1,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList5",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList09.opList5",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdStridedStore",
+                                                "opLat": 1,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList6",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList09.opList6",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdIndexedStore",
+                                                "opLat": 1,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList7",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList09.opList7",
+                                                "eventq_index": 0,
+                                                "opClass":
+                                                    "SimdWholeRegisterStore",
+                                                "opLat": 1,
+                                                "pipelined": true
+                                            },
+                                            {
+                                                "type": "OpDesc",
+                                                "cxx_class": "gem5::OpDesc",
+                                                "name": "opList8",
+                                                "path":
+                                                    "board.processor.cores.core.instQueues.fuPool.FUList09.opList8",
+                                                "eventq_index": 0,
+                                                "opClass":
+                                                    "SimdStrideSegmentedStore",
+                                                "opLat": 1,
+                                                "pipelined": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "count": 0,
+                                        "ops":
+                                            [
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList00",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList10.opList00",
+                                                    "eventq_index": 0,
+                                                    "opClass": "MemRead",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList01",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList10.opList01",
+                                                    "eventq_index": 0,
+                                                    "opClass": "MemWrite",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList02",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList10.opList02",
+                                                    "eventq_index": 0,
+                                                    "opClass": "FloatMemRead",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList03",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList10.opList03",
+                                                    "eventq_index": 0,
+                                                    "opClass": "FloatMemWrite",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList04",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList10.opList04",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdUnitStrideLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList05",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList10.opList05",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdUnitStrideStore",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList06",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList10.opList06",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdUnitStrideMaskLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList07",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList10.opList07",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdUnitStrideMaskStore",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList08",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList10.opList08",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdUnitStrideSegmentedLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList09",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList10.opList09",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdUnitStrideSegmentedStore",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList10",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList10.opList10",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdStridedLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList11",
+                                                    "path": "board.processor.cores.core.instQueues.fuPool.FUList10.opList11",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdStridedStore",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList12",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList10.opList12",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdIndexedLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList13",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList10.opList13",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdIndexedStore",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList14",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList10.opList14",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdUnitStrideFaultOnlyFirstLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList15",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList10.opList15",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdUnitStrideSegmentedFaultOnlyFirstLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList16",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList10.opList16",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdWholeRegisterLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList17",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList10.opList17",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdWholeRegisterStore",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList18",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList10.opList18",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdStrideSegmentedLoad",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                },
+                                                {
+                                                    "type": "OpDesc",
+                                                    "cxx_class":
+                                                        "gem5::OpDesc",
+                                                    "name": "opList19",
+                                                    "path":
+                                                        "board.processor.cores.core.instQueues.fuPool.FUList10.opList19",
+                                                    "eventq_index": 0,
+                                                    "opClass":
+                                                        "SimdStrideSegmentedStore",
+                                                    "opLat": 1,
+                                                    "pipelined": true
+                                                }
+                                            ]
+                                    }
+                                ]
+                        }
+                    ],
+                "caches": [
+                    {
+                        "path": "board.cache_hierarchy.l1d-cache-0",
+                        "size": 32768,
+                        "assoc": 8,
+                        "tag_latency": 1,
+                        "data_latency": 1,
+                        "response_latency": 1,
+                        "mshrs": 16,
+                        "tgts_per_mshr": 20,
+                        "write_buffers": 8,
+                        "prefetcher": null,
+                        "clk_domain": "board.clk_domain"
+                    },
+                    {
+                        "path": "board.cache_hierarchy.l1i-cache-0",
+                        "size": 32768,
+                        "assoc": 8,
+                        "tag_latency": 1,
+                        "data_latency": 1,
+                        "response_latency": 1,
+                        "mshrs": 16,
+                        "tgts_per_mshr": 20,
+                        "write_buffers": 8,
+                        "prefetcher": null,
+                        "clk_domain": "board.clk_domain"
+                    },
+                    {
+                        "path": "board.cache_hierarchy.l2-cache-0",
+                        "size": 262144,
+                        "assoc": 16,
+                        "tag_latency": 10,
+                        "data_latency": 10,
+                        "response_latency": 1,
+                        "mshrs": 20,
+                        "tgts_per_mshr": 12,
+                        "write_buffers": 8,
+                        "prefetcher": null,
+                        "clk_domain": "board.clk_domain"
+                    }
+                ],
+                "clocks": [
+                    {
+                        "path": "board.clk_domain",
+                        "clock": [
+                            500
+                        ]
+                    },
+                    {
+                        "path": "board.processor.clk_domain",
+                        "clock": [
+                            500
+                        ]
+                    }
+                ],
+                "line_sizes": [
+                    64
+                ]
+            },
+        "validation_binaries": {
+            "traps32":
+                "aa9846275517d6ddc30d5169fabe988565f18da84eacdbfd4213cf15db75841c",
+            "interrupt-mset64":
+                "c93d004993a6e32f9ac07c7171febf6ddd2ea46583d02c98c564e0749e9360d0",
+            "traps64":
+                "f2982be5210eac7ff8327c09b9503eb925bb61bd1865181959f4ad2b05becbc1",
+            "interrupt64":
+                "09c9a5d3188192e46e55d6b6fccdd1b75cb95dbe17071c20977fc13729bdacfb",
+            "interrupt-mmove64":
+                "2c6fe264b846bd10f7688de952c4c860282b5d29776cb7ae214c095c577536b1",
+            "bench-tests":
+                "35f877dda1b1074581fc87e94c376520a25ede7bfe3ccaee7847c82a2b709d04",
+            "bench":
+                "fb1d70703744db8b622f53e6eba724169c6ce5180dbe42fa469c8bac051019bb",
+            "disabled64":
+                "9270ccd922a0b3ed73a3d922fe989c7afed3e314ccd2aaad4ce8a69ed1c00ca4"
+        }
+    }

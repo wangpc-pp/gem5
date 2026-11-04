@@ -46,6 +46,7 @@
 #include <cstdint>
 #include <list>
 #include <optional>
+#include <unordered_map>
 #include <vector>
 
 #include "arch/generic/mmu.hh"
@@ -644,6 +645,12 @@ class LSQ
 
             /* Number of retry responses sent */
             statistics::Scalar numSendRetryResp;
+            statistics::Scalar dataBufferStalls;
+            statistics::Scalar dataBufferPeakBytes;
+            statistics::Scalar peakLoadBytesPerCycle;
+            statistics::Scalar peakStoreBytesPerCycle;
+            statistics::Scalar storePriorityStalls;
+            statistics::Scalar storeReserveStalls;
         } dcachePortStats;
 
       protected:
@@ -905,6 +912,31 @@ class LSQ
     /** Another store port is in use */
     void cachePortBusy(bool is_load);
 
+    bool dataBufferAvailable(PacketPtr pkt);
+    void reserveDataBuffer(PacketPtr pkt);
+    void releaseDataBuffer(PacketPtr pkt);
+    bool
+    storePriorityEnabled() const
+    {
+        return storePriority;
+    }
+    bool
+    storeReserveActive() const
+    {
+        return storeReserveSlots &&
+               usedDataBufferSlots >= dataBufferSlots - storeReserveSlots;
+    }
+    void
+    recordStoreReserveStall()
+    {
+        ++dcachePort.dcachePortStats.storeReserveStalls;
+    }
+    void
+    recordStorePriorityStall()
+    {
+        ++dcachePort.dcachePortStats.storePriorityStalls;
+    }
+
     RequestPort &getDataPort() { return dcachePort; }
 
     /** Split alignment used by transferNeedsBurst / SplitDataRequest. */
@@ -967,6 +999,16 @@ class LSQ
      * Unspecified uses the cache-line size. See BaseO3CPU.vecMemPackWidth.
      */
     const std::optional<unsigned> vecMemPackWidth;
+
+    const unsigned dataBufferSlots;
+    const unsigned dataBufferSlotBytes;
+    const bool storePriority;
+    const unsigned storeReserveSlots;
+    unsigned usedDataBufferSlots = 0;
+    std::unordered_map<PacketPtr, unsigned> dataBufferReservations;
+    Cycles dataPortLastCycle{0};
+    unsigned sentLoadBytes = 0;
+    unsigned sentStoreBytes = 0;
 
     /** Max LQ Size - Used to Enforce Sharing Policies. */
     unsigned maxLQEntries;

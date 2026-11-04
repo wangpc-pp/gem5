@@ -34,6 +34,7 @@
 
 #include "base/debug.hh"
 #include "base/trace.hh"
+#include "cpu/base.hh"
 #include "debug/PCEvent.hh"
 #include "sim/cur_tick.hh"
 #include "sim/system.hh"
@@ -90,6 +91,7 @@ PCEventQueue::doService(Addr pc, ThreadContext *tc)
         DPRINTF(PCEvent, "PC based event serviced at %#x: %s\n",
                 (*i)->pc(), (*i)->descr());
 
+        tc->getCpuPtr()->synchronizeState(tc->threadId());
         (*i)->process(tc);
         ++serviced;
     }

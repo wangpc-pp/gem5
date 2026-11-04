@@ -28,6 +28,9 @@
  */
 
 #include "arch/riscv/decoder.hh"
+
+#include <algorithm>
+
 #include "arch/riscv/insts/zcmt.hh"
 #include "arch/riscv/isa.hh"
 #include "arch/riscv/types.hh"
@@ -46,6 +49,21 @@ Decoder::Decoder(const RiscvDecoderParams &p) : InstDecoder(p, &machInst)
     vlen = isa->getVecLenInBits();
     elen = isa->getVecElemLenInBits();
     _hasZcd = isa->reportsExtension("Zcd");
+    _hasZimemops = isa->reportsExtension("Zimemops");
+    _zimemopsUnroll = p.zimemops_unroll;
+    _zimemopsBytes = p.zimemops_bytes;
+    fatal_if(_zimemopsBytes < 1 || _zimemopsBytes > 256,
+             "zimemops_bytes must be between 1 and 256");
+    _zimemopsBeatBytes = std::min(vlen / 8, 32U);
+    _zimemopsStreaming = p.zimemops_streaming;
+    _zimemopsQuadBatch = p.zimemops_quad_batch;
+    _zimemopsPairControl = p.zimemops_pair_control;
+    _zimemopsScalarThreshold = p.zimemops_scalar_threshold;
+    fatal_if(_zimemopsScalarThreshold > 8,
+             "zimemops_scalar_threshold must be between 0 and 8");
+    _zimemopsBytes = std::min(_zimemopsBytes, 2 * _zimemopsBeatBytes);
+    fatal_if(_zimemopsUnroll < 1 || _zimemopsUnroll > 64,
+             "zimemops_unroll must be between 1 and 64");
     reset();
 }
 

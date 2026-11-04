@@ -65,6 +65,17 @@ uncacheable(params.uncacheable.begin(), params.uncacheable.end())
 Fault
 PMAChecker::check(const RequestPtr &req, BaseMMU::Mode mode, Addr vaddr)
 {
+    if (req->getArchFlags() & XlateFlags::ZIMEMOPS) {
+        const auto access = RangeSize(req->getPaddr(), req->getSize());
+        for (const auto &range : uncacheable) {
+            if (access.intersects(range)) {
+                return std::make_shared<AddressFault>(
+                    req->getVaddr(), mode == BaseMMU::Read
+                                         ? ExceptionCode::LOAD_ACCESS
+                                         : ExceptionCode::STORE_ACCESS);
+            }
+        }
+    }
     if (isUncacheable(req->getPaddr(), req->getSize())) {
         req->setFlags(Request::UNCACHEABLE | Request::STRICT_ORDER);
     }

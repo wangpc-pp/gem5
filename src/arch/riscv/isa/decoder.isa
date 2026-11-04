@@ -1356,6 +1356,13 @@ decode QUADRANT default Unknown::unknown() {
         }
 
         0x03: decode FUNCT3 {
+            0x3: decode FUNCT7 {
+                format ZimemopsOp {
+                    0x00: mcopy();
+                    0x03: mmove();
+                    0x06: mset();
+                }
+            }
             format FenceOp {
                 0x0: fence({{
                 }}, uint64_t, IsReadBarrier, IsWriteBarrier, No_OpClass);

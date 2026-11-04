@@ -1,0 +1,139 @@
+{
+    "review_date": "2026-11-09",
+    "reviewed_implementation_source_sha256":
+        "6e3c465a32cd9c11f39437798e735f4d44afc6a2522351070a43e7ba7247c9fd",
+    "scope":
+        "Static source and generated-microcode metadata audit; rechecked existing results. No new simulation, RTL or PPA validation.",
+    "constructor_enumeration": {
+        "method":
+            "Compile the unchanged Zimemops constructor and ZimemopsLengths from mem.cc with metadata-only micro-op stubs; count emitted objects. No instruction execution tested.",
+        "parameters": {
+            "rv_type": 64,
+            "unroll": 16,
+            "bytes": 64,
+            "beat_bytes": 32,
+            "streaming": true,
+            "quad_batch": false,
+            "pair_control": false
+        },
+        "entries": [
+            {
+                "scalar_threshold": 0,
+                "pre_replay_entries": 597,
+                "replay_entries": 8,
+                "total_entries": 605,
+                "load_max": 32,
+                "store_max": 64,
+                "temp_names": 4,
+                "max_span": 512,
+                "paired_store_entries": 16,
+                "instruction": "mcopy"
+            },
+            {
+                "scalar_threshold": 8,
+                "pre_replay_entries": 602,
+                "replay_entries": 8,
+                "total_entries": 610,
+                "load_max": 32,
+                "store_max": 64,
+                "temp_names": 4,
+                "max_span": 512,
+                "paired_store_entries": 16,
+                "instruction": "mcopy"
+            },
+            {
+                "scalar_threshold": 0,
+                "pre_replay_entries": 243,
+                "replay_entries": 8,
+                "total_entries": 251,
+                "load_max": 32,
+                "store_max": 32,
+                "temp_names": 4,
+                "max_span": 160,
+                "paired_store_entries": 0,
+                "instruction": "mmove"
+            },
+            {
+                "scalar_threshold": 8,
+                "pre_replay_entries": 248,
+                "replay_entries": 8,
+                "total_entries": 256,
+                "load_max": 32,
+                "store_max": 32,
+                "temp_names": 4,
+                "max_span": 160,
+                "paired_store_entries": 0,
+                "instruction": "mmove"
+            },
+            {
+                "scalar_threshold": 0,
+                "pre_replay_entries": 202,
+                "replay_entries": 6,
+                "total_entries": 208,
+                "load_max": 0,
+                "store_max": 64,
+                "temp_names": 0,
+                "max_span": 160,
+                "paired_store_entries": 13,
+                "instruction": "mset"
+            },
+            {
+                "scalar_threshold": 8,
+                "pre_replay_entries": 205,
+                "replay_entries": 6,
+                "total_entries": 211,
+                "load_max": 0,
+                "store_max": 64,
+                "temp_names": 0,
+                "max_span": 160,
+                "paired_store_entries": 13,
+                "instruction": "mset"
+            }
+        ],
+        "note":
+            "Counts include generated variants regardless of runtime reachability; load/store maxima here are constructor metadata bounds."
+    },
+    "source_sha256": {
+        "src/arch/riscv/insts/mem.cc":
+            "6e3c465a32cd9c11f39437798e735f4d44afc6a2522351070a43e7ba7247c9fd",
+        "src/arch/riscv/regs/int.hh":
+            "b7848c6a9ddd217006a6e320f6092ff1cd7c7ca9ef825b9be779390a21070161",
+        "src/arch/riscv/regs/vector.hh":
+            "74da75646ce693a2a0dcbbd1bc14449b7e34bad34b25c6f6250487b1a921d453",
+        "src/cpu/o3/lsq.cc":
+            "ffeff8a6726633189b6110705523123d307f62a039224bc4337aed28889ac811",
+        "src/cpu/o3/lsq.hh":
+            "aae2a4d8c1ec274577a869eefb075b7fdba45de3c770c2e260ca807f24ba04f2",
+        "src/cpu/o3/lsq_unit.cc":
+            "c692b6825f2ad5f7c0480c4048975148390fb55a016b72e0fdec5be555fd445b",
+        "src/cpu/o3/lsq_unit.hh":
+            "6bd17187b3dacfe88595ab2ce6e14f7b5ee3fd6fe66f67c0b3cdbf399baf199d",
+        "src/cpu/o3/dyn_inst.cc":
+            "13f74d6501235bf50eaaa09db96d8b6c88502baef5696da791443218a7063260",
+        "src/cpu/o3/commit.cc":
+            "cb511ae3bb0b9c3c7ab2337e7d05c7adab06ef9507d4990fc75d18980848902f",
+        "util/zimemops/se.py":
+            "6bde2c77b6485f0f43f662165f9305914df0453d8285323ece1cf3e56652d7d8"
+    },
+    "existing_results": {
+        "rows": 1280,
+        "all_limits_passed": true,
+        "maxima": {
+            "peak_read_bytes": 32.0,
+            "peak_write_bytes": 32.0,
+            "buffer_peak_bytes": 128.0
+        },
+        "validation_passed": 72,
+        "validation_total": 72
+    },
+    "artifact_sha256": {
+        "results.json":
+            "22253e43ef364f28a34d82a1a2c1269c340bd1167b87b5e43d1418f07a60c807",
+        "validation.json":
+            "1290221019bfaf18bc789a0cc51723230f92f7de6db286d27126ede9990af33c",
+        "completion-audit.json":
+            "49b9712fe8cfdc952a39497e983fb4bf8518f667b6de18bc36b94dbb3d72b91e",
+        "provenance.json":
+            "5a5e0b1bedb18a3f61795372ece7d4e6cad3f5e33f07f2ae3bae633b10d1aa23"
+    }
+}

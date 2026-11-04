@@ -435,6 +435,10 @@ class BaseCPU : public ClockedObject
      */
     inline Addr cacheLineSize() const { return _cacheLineSize; }
 
+    virtual void
+    synchronizeState(ThreadID)
+    {}
+
     /**
      * Serialize this object to the given output stream.
      *

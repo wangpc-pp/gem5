@@ -42,6 +42,8 @@
 #ifndef __CPU_EXEC_CONTEXT_HH__
 #define __CPU_EXEC_CONTEXT_HH__
 
+#include <limits>
+
 #include "base/types.hh"
 #include "cpu/base.hh"
 #include "cpu/reg_class.hh"
@@ -114,6 +116,20 @@ class ExecContext
      * @{
      * @name Memory Interface
      */
+    /** Whether operand results are speculative until instruction commit. */
+    virtual bool
+    hasRegisterRenaming() const
+    {
+        return false;
+    }
+
+    /** Maximum request size accepted by this context's memory interface. */
+    virtual unsigned
+    maxMemAccessSize() const
+    {
+        return std::numeric_limits<unsigned>::max();
+    }
+
     /**
      * Perform an atomic memory read operation.  Must be overridden
      * for exec contexts that support atomic memory mode.  Not pure

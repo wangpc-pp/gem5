@@ -666,6 +666,18 @@ Commit::tick()
 }
 
 void
+Commit::synchronizeState(ThreadID tid)
+{
+    if (!lastCommittedInst[tid]) {
+        return;
+    }
+    const bool old = thread[tid]->noSquashFromTC;
+    thread[tid]->noSquashFromTC = true;
+    lastCommittedInst[tid]->synchronizeState(thread[tid]->getTC());
+    thread[tid]->noSquashFromTC = old;
+}
+
+void
 Commit::handleInterrupt()
 {
     // Verify that we still have an interrupt to handle
@@ -698,6 +710,7 @@ Commit::handleInterrupt()
         // CPU will handle interrupt. Note that we ignore the local copy of
         // interrupt. This is because the local copy may no longer be the
         // interrupt that the interrupt controller thinks is being handled.
+        synchronizeState(0);
         cpu->processInterrupts(cpu->getInterrupts());
 
         thread[0]->noSquashFromTC = false;
@@ -984,6 +997,7 @@ Commit::commitInsts()
             bool commit_success = commitHead(head_inst, num_committed);
 
             if (commit_success) {
+                lastCommittedInst[tid] = head_inst->staticInst;
                 ++num_committed;
                 cpu->commitStats[tid]
                     ->committedInstType[head_inst->opClass()]++;
@@ -1218,6 +1232,7 @@ Commit::commitHead(const DynInstPtr &head_inst, unsigned inst_num)
         // needed to update the state as soon as possible.  This
         // prevents external agents from changing any specific state
         // that the trap need.
+        head_inst->staticInst->synchronizeState(thread[tid]->getTC());
         cpu->trap(inst_fault, tid,
                   head_inst->notAnInst() ? nullStaticInstPtr :
                       head_inst->staticInst);

@@ -53,6 +53,7 @@
 #include <memory>
 
 #include "arch/riscv/faults.hh"
+#include "arch/riscv/memflags.hh"
 #include "arch/riscv/page_size.hh"
 #include "arch/riscv/pagetable.hh"
 #include "arch/riscv/tlb.hh"
@@ -1145,20 +1146,28 @@ Walker::WalkerState::recvPacket(PacketPtr pkt)
 
             req->setPaddr(paddr);
 
+            if (req->getArchFlags() & XlateFlags::ZIMEMOPS) {
+                timingFault = walker->tlb->finalizePhysical(req, tc, mode);
+            }
+
             // do pmp check if any checking condition is met.
             // timingFault will be NoFault if pmp checks are
             // passed, otherwise an address fault will be returned.
-            timingFault = walker->pmp->pmpCheck(req, mode, pmode, tc);
+            if (timingFault == NoFault) {
+                timingFault = walker->pmp->pmpCheck(req, mode, pmode, tc);
+            }
 
             if (timingFault == NoFault) {
                 timingFault = walker->pma->check(req, mode);
             }
 
             // Let the CPU continue.
-            translation->finish(timingFault, req, tc, mode);
+            translation->finish(zimemopsFault(timingFault, req), req, tc,
+                                mode);
         } else {
             // There was a fault during the walk. Let the CPU know.
-            translation->finish(timingFault, req, tc, mode);
+            translation->finish(zimemopsFault(timingFault, req), req, tc,
+                                mode);
         }
         return true;
     }

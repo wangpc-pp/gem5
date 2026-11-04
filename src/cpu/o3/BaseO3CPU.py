@@ -77,6 +77,19 @@ class BaseO3CPU(BaseCPU):
     )
     cacheLoadPorts = Param.Unsigned(200, "Cache Ports. Constrains loads only.")
 
+    lsqDataBufferSlots = Param.Unsigned(
+        0, "Shared cache-request data slots; zero disables the limit"
+    )
+    lsqDataBufferSlotBytes = Param.Unsigned(
+        64, "Capacity of each shared cache-request data slot in bytes"
+    )
+    lsqStorePriority = Param.Bool(
+        False, "Drain older unsent stores before admitting younger loads"
+    )
+    lsqStoreReserveSlots = Param.Unsigned(
+        0, "Protect free request banks for ready older stores; zero disables"
+    )
+
     # Backward pipeline delays
     fetchToBacDelay = Param.Cycles(1, "Fetch to Branch address calc. delay")
     decodeToFetchDelay = Param.Cycles(1, "Decode to fetch delay")

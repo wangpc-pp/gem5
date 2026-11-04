@@ -33,6 +33,7 @@
 
 #include "arch/riscv/insts/static_inst.hh"
 #include "arch/riscv/isa.hh"
+#include "arch/riscv/memflags.hh"
 #include "arch/riscv/mmu.hh"
 #include "arch/riscv/pmp.hh"
 #include "arch/riscv/regs/misc.hh"
@@ -50,6 +51,34 @@ namespace gem5
 
 namespace RiscvISA
 {
+
+namespace
+{
+class ZimemopsReplay : public ReExec
+{
+  public:
+    void
+    invoke(ThreadContext *tc, const StaticInstPtr &inst) override
+    {
+        // No architectural trap or retirement. Operands describe the start
+        // of the uncommitted block; discard its buffered reads and replay.
+        PCState pc = tc->pcState().as<PCState>();
+        pc.upc(ZimemopsBytePC);
+        pc.nupc(ZimemopsBytePC + 1);
+        tc->pcState(pc);
+    }
+};
+} // anonymous namespace
+
+Fault
+zimemopsFault(Fault fault, const RequestPtr &req)
+{
+    if (fault != NoFault &&
+        (req->getArchFlags() & XlateFlags::ZIMEMOPS_WIDE)) {
+        return std::make_shared<ZimemopsReplay>();
+    }
+    return fault;
+}
 
 void
 RiscvFault::invokeSE(ThreadContext *tc, const StaticInstPtr &inst)

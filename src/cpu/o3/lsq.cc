@@ -88,12 +88,12 @@ LSQ::DcachePort::DcachePort(LSQ *_lsq, CPU *_cpu) :
     dcachePortStats(_cpu)
 {}
 
-LSQ::DcachePort::DcachePortStats::DcachePortStats(CPU* _cpu)
+LSQ::DcachePort::DcachePortStats::DcachePortStats(CPU *_cpu)
     : statistics::Group(_cpu),
       ADD_STAT(numRecvResp, statistics::units::Count::get(),
-              "Number of received responses"),
+               "Number of received responses"),
       ADD_STAT(numRecvRespBytes, statistics::units::Byte::get(),
-              "Number of received response bytes"),
+               "Number of received response bytes"),
       ADD_STAT(recvRespAvgBW,
                statistics::units::Rate<statistics::units::Byte,
                                        statistics::units::Cycle>::get(),
@@ -111,7 +111,19 @@ LSQ::DcachePort::DcachePortStats::DcachePortStats(CPU* _cpu)
                                        statistics::units::Count>::get(),
                "Average retry rate per received response"),
       ADD_STAT(numSendRetryResp, statistics::units::Count::get(),
-               "Number of retry responses sent")
+               "Number of retry responses sent"),
+      ADD_STAT(dataBufferStalls, statistics::units::Count::get(),
+               "Cache packets delayed by shared request data capacity"),
+      ADD_STAT(dataBufferPeakBytes, statistics::units::Byte::get(),
+               "Peak shared request data capacity reserved"),
+      ADD_STAT(peakLoadBytesPerCycle, statistics::units::Byte::get(),
+               "Peak load request bytes accepted in a core cycle"),
+      ADD_STAT(peakStoreBytesPerCycle, statistics::units::Byte::get(),
+               "Peak store request bytes accepted in a core cycle"),
+      ADD_STAT(storePriorityStalls, statistics::units::Count::get(),
+               "Younger loads delayed by older unsent stores"),
+      ADD_STAT(storeReserveStalls, statistics::units::Count::get(),
+               "Refills delayed to preserve a bank for ready older stores")
 {
     recvRespAvgBW.precision(2);
     recvRespAvgBW = numRecvRespBytes / _cpu->baseStats.numCycles;
@@ -140,6 +152,10 @@ LSQ::LSQ(CPU *cpu_ptr, IEW *iew_ptr, const BaseO3CPUParams &params)
       LQEntries(params.LQEntries),
       SQEntries(params.SQEntries),
       vecMemPackWidth(params.vecMemPackWidth),
+      dataBufferSlots(params.lsqDataBufferSlots),
+      dataBufferSlotBytes(params.lsqDataBufferSlotBytes),
+      storePriority(params.lsqStorePriority),
+      storeReserveSlots(params.lsqStoreReserveSlots),
       maxLQEntries(maxLSQAllocation(lsqPolicy, LQEntries, params.numThreads,
                                     params.smtLSQThreshold)),
       maxSQEntries(maxLSQAllocation(lsqPolicy, SQEntries, params.numThreads,
@@ -150,12 +166,17 @@ LSQ::LSQ(CPU *cpu_ptr, IEW *iew_ptr, const BaseO3CPUParams &params)
       recvRespMaxCachelines(params.recvRespMaxCachelines),
       recvRespBufferSize(params.recvRespBufferSize),
       recvRespBytes(0),
+      recvRespPendBytes(0),
       recvRespCachelines(0),
       recvRespLastCachelineAddr(0),
       recvRespLastActiveCycle(0),
       retryRespEvent([this] { sendRetryResp(); }, name())
 {
     assert(numThreads > 0 && numThreads <= MaxThreads);
+    fatal_if(dataBufferSlots && !isPowerOf2(dataBufferSlotBytes),
+             "lsqDataBufferSlotBytes must be a nonzero power of two");
+    fatal_if(storeReserveSlots > dataBufferSlots,
+             "lsqStoreReserveSlots exceeds shared request banks");
 
     // 0 is not a valid grain (and is no longer a "use default" sentinel).
     fatal_if(vecMemPackWidth.has_value() && *vecMemPackWidth == 0,
@@ -208,8 +229,68 @@ LSQ::name() const
 unsigned
 LSQ::splitGrain(const DynInstPtr &inst) const
 {
-    return vecMemSplitGrain(vecMemPackWidth.value_or(cpu->cacheLineSize()),
-                            cpu->cacheLineSize(), inst->opClass());
+    const unsigned grain =
+        vecMemSplitGrain(vecMemPackWidth.value_or(cpu->cacheLineSize()),
+                         cpu->cacheLineSize(), inst->opClass());
+    return dataBufferSlots ? std::min(grain, dataBufferSlotBytes) : grain;
+}
+
+bool
+LSQ::dataBufferAvailable(PacketPtr pkt)
+{
+    if (!dataBufferSlots) {
+        return true;
+    }
+    assert(pkt->getSize() <= dataBufferSlotBytes);
+    if (usedDataBufferSlots < dataBufferSlots) {
+        return true;
+    }
+    ++dcachePort.dcachePortStats.dataBufferStalls;
+    return false;
+}
+
+void
+LSQ::reserveDataBuffer(PacketPtr pkt)
+{
+    const Cycles cycle = cpu->curCycle();
+    if (dataPortLastCycle != cycle) {
+        sentLoadBytes = sentStoreBytes = 0;
+        dataPortLastCycle = cycle;
+    }
+    const bool load = pkt->isRead();
+    auto &sent = load ? sentLoadBytes : sentStoreBytes;
+    sent += pkt->getSize();
+    auto &port_stats = dcachePort.dcachePortStats;
+    auto &port_peak = load ? port_stats.peakLoadBytesPerCycle
+                           : port_stats.peakStoreBytesPerCycle;
+    if (port_peak.value() < sent) {
+        port_peak = sent;
+    }
+    if (!dataBufferSlots) {
+        return;
+    }
+    assert(usedDataBufferSlots < dataBufferSlots);
+    assert(!dataBufferReservations.count(pkt));
+    dataBufferReservations.emplace(pkt, 1);
+    ++usedDataBufferSlots;
+    auto &peak = dcachePort.dcachePortStats.dataBufferPeakBytes;
+    const unsigned bytes = usedDataBufferSlots * dataBufferSlotBytes;
+    if (peak.value() < bytes) {
+        peak = bytes;
+    }
+}
+
+void
+LSQ::releaseDataBuffer(PacketPtr pkt)
+{
+    if (!dataBufferSlots) {
+        return;
+    }
+    const auto erased = dataBufferReservations.erase(pkt);
+    assert(erased == 1);
+    (void)erased;
+    assert(usedDataBufferSlots > 0);
+    --usedDataBufferSlots;
 }
 
 void
@@ -231,7 +312,7 @@ LSQ::drainSanityCheck() const
 bool
 LSQ::isDrained() const
 {
-    bool drained(true);
+    bool drained = usedDataBufferSlots == 0;
 
     if (!lqEmpty()) {
         DPRINTF(Drain, "Not drained, LQ not empty.\n");
@@ -479,6 +560,9 @@ LSQ::sendRetryResp()
 bool
 LSQ::recvTimingResp(PacketPtr pkt)
 {
+    // Reservations survive squashes until their cache response returns.
+    // Release before completion callbacks can destroy the request/packet.
+    releaseDataBuffer(pkt);
     if (pkt->isError())
         DPRINTF(LSQ, "Got error packet back for address: %#X\n",
                 pkt->getAddr());
@@ -1534,7 +1618,7 @@ LSQ::DcachePort::throttleReadResp(PacketPtr pkt)
 bool
 LSQ::DcachePort::recvTimingResp(PacketPtr pkt)
 {
-    if (lsq->recvRespThrottling && pkt->cmd == MemCmd::ReadResp) {
+    if (lsq->recvRespThrottling && pkt->isRead() && pkt->hasData()) {
         if (throttleReadResp(pkt)) {
             return false;
         }

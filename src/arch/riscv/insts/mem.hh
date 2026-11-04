@@ -71,6 +71,25 @@ class Store : public MemInst
         Addr pc, const loader::SymbolTable *symtab) const override;
 };
 
+/** Restartable Zimemops v0.1 byte-transfer microcode. */
+class Zimemops : public RiscvMacroInst
+{
+    unsigned byteOffset;
+
+  public:
+    Zimemops(const char *mnem, ExtMachInst mach_inst, unsigned unroll,
+             unsigned bytes, unsigned beat_bytes, bool streaming,
+             bool quad_batch, bool pair_control, unsigned scalar_threshold);
+
+    StaticInstPtr fetchMicroop(MicroPC upc) const override;
+
+    static bool validRegisters(ExtMachInst mach_inst);
+
+    std::string
+    generateDisassembly(Addr pc,
+                        const loader::SymbolTable *symtab) const override;
+};
+
 } // namespace RiscvISA
 } // namespace gem5
 

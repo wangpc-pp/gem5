@@ -63,6 +63,14 @@ class Decoder : public InstDecoder
     uint32_t vlen;
     uint32_t elen;
     bool _hasZcd;
+    bool _hasZimemops;
+    unsigned _zimemopsUnroll;
+    unsigned _zimemopsBytes;
+    unsigned _zimemopsBeatBytes;
+    bool _zimemopsStreaming;
+    bool _zimemopsQuadBatch;
+    bool _zimemopsPairControl;
+    unsigned _zimemopsScalarThreshold;
     Addr jvtEntry;
 
     VTYPE vtype = (1ULL << 63); // vtype.vill = 1 at initial;

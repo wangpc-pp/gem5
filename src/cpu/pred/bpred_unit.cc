@@ -135,8 +135,9 @@ BPredUnit::predict(const StaticInstPtr &inst, const InstSeqNum &seqNum,
     // Save off branch stuff into `hist` so we can correct the predictor
     // if prediction was wrong.
 
+    const Addr branch_addr = inst->branchPredictionAddr(pc);
     BranchType brType = getBranchType(inst);
-    hist = new PredictorHistory(tid, seqNum, pc.instAddr(), inst);
+    hist = new PredictorHistory(tid, seqNum, branch_addr, inst);
 
     stats.lookups[tid][brType]++;
     ppBranches->notify(1);
@@ -156,14 +157,13 @@ BPredUnit::predict(const StaticInstPtr &inst, const InstSeqNum &seqNum,
     } else {
         // Conditional branches -------
         ++stats.condPredicted;
-        Prediction condPred =
-            cPred->lookup(tid, pc.instAddr(), hist->bpHistory);
+        Prediction condPred = cPred->lookup(tid, branch_addr, hist->bpHistory);
         hist->condPred = condPred.taken;
 
         if (overridingCPred) {
 
             Prediction secondaryPred = overridingCPred->lookup(
-                tid, pc.instAddr(), hist->overridingBpHistory);
+                tid, branch_addr, hist->overridingBpHistory);
             if (secondaryPred.taken != hist->condPred) {
                 // If the predictors disagree,
                 // use the result of the overriding predictor
@@ -205,7 +205,7 @@ BPredUnit::predict(const StaticInstPtr &inst, const InstSeqNum &seqNum,
      * chance to detect a branch without a BTB hit.
      */
     stats.BTBLookups++;
-    BTBLookupResult btb_res = btb->lookup(tid, pc.instAddr(), brType);
+    BTBLookupResult btb_res = btb->lookup(tid, branch_addr, brType);
     const PCStateBase *btb_target = btb_res.target;
     // The BTB and CBP are accessed in parallel. The total latency should be
     // the maximum of the bpred latency and the BTB latency.
@@ -289,7 +289,7 @@ BPredUnit::predict(const StaticInstPtr &inst, const InstSeqNum &seqNum,
         ++stats.indirectLookups;
 
         const PCStateBase *itarget =
-            iPred->lookup(tid, seqNum, pc.instAddr(), hist->indirectHistory);
+            iPred->lookup(tid, seqNum, branch_addr, hist->indirectHistory);
 
         if (itarget) {
             // Indirect predictor hit
@@ -303,9 +303,8 @@ BPredUnit::predict(const StaticInstPtr &inst, const InstSeqNum &seqNum,
                     tid, seqNum, pc, *hist->target);
         } else {
             ++stats.indirectMisses;
-            DPRINTF(Branch,
-                    "[tid:%i, sn:%llu] PC:%#x no indirect target\n",
-                    tid, seqNum, pc.instAddr());
+            DPRINTF(Branch, "[tid:%i, sn:%llu] PC:%#x no indirect target\n",
+                    tid, seqNum, branch_addr);
         }
     }
 

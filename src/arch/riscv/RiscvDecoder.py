@@ -31,3 +31,24 @@ class RiscvDecoder(InstDecoder):
     type = "RiscvDecoder"
     cxx_class = "gem5::RiscvISA::Decoder"
     cxx_header = "arch/riscv/decoder.hh"
+
+    zimemops_unroll = Param.Unsigned(
+        16, "Transfers per Zimemops microcode loop (1 to 64)"
+    )
+    zimemops_bytes = Param.Unsigned(
+        64,
+        "Copy descriptor bytes, capped at two native 32-byte beats (1 to 256)",
+    )
+    zimemops_streaming = Param.Bool(
+        True, "Keep streaming progress private until completion or a stop"
+    )
+    zimemops_quad_batch = Param.Bool(
+        False, "Use four native beats per Zimemops load/store microcode batch"
+    )
+    zimemops_pair_control = Param.Bool(
+        False, "Redirect Zimemops microcode after every pair of native stores"
+    )
+    zimemops_scalar_threshold = Param.Unsigned(
+        0,
+        "Use integer data for fragments up to this size (0 disables, max 8)",
+    )

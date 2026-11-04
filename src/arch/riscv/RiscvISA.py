@@ -240,6 +240,7 @@ _EXTENSION_REGISTRY = {
     "Zihintpause": {"implemented": True},
     "Zihpm": {"implemented": True},
     "Zilsd": {"implemented": False},
+    "Zimemops": {"implemented": True},
     "Zimop": {"implemented": False},
     "Zk": {"implemented": False},
     "Zkn": {"implemented": False},

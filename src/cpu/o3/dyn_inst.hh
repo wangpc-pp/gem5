@@ -1048,6 +1048,11 @@ class DynInst : public ExecContext, public RefCounted
     // to do).
 
     RegVal getRegOperand(const StaticInst *si, int idx) override;
+    bool
+    hasRegisterRenaming() const override
+    {
+        return true;
+    }
 
     void getRegOperand(const StaticInst *si, int idx, void *val) override;
 

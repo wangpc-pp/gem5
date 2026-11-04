@@ -904,9 +904,10 @@ BAC::updatePreDecode(ThreadID tid, const InstSeqNum seqNum,
         // FDP we use "taken" history where not taken branches don't modify
         // the global history.
 
-        hist =
-            new BPredUnit::PredictorHistory(tid, seqNum, pc.instAddr(), inst);
-        bpu->branchPlaceholder(tid, pc.instAddr(), inst->isUncondCtrl(), hist);
+        hist = new BPredUnit::PredictorHistory(
+            tid, seqNum, inst->branchPredictionAddr(pc), inst);
+        bpu->branchPlaceholder(tid, inst->branchPredictionAddr(pc),
+                               inst->isUncondCtrl(), hist);
 
         set(hist->target, std::unique_ptr<PCStateBase>(pc.clone()));
         inst->advancePC(*hist->target);

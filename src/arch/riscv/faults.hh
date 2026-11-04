@@ -48,6 +48,9 @@ class ThreadContext;
 namespace RiscvISA
 {
 
+// Convert failed speculative block accesses into an internal byte replay.
+Fault zimemopsFault(Fault fault, const RequestPtr &req);
+
 enum class FaultType
 {
     INTERRUPT,

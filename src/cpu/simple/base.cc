@@ -289,6 +289,14 @@ BaseSimpleCPU::traceFault()
 }
 
 void
+BaseSimpleCPU::synchronizeState(ThreadID tid)
+{
+    if (curStaticInst) {
+        curStaticInst->synchronizeState(threadContexts[tid]);
+    }
+}
+
+void
 BaseSimpleCPU::checkForInterrupts()
 {
     SimpleExecContext&t_info = *threadInfo[curThread];
@@ -312,7 +320,12 @@ BaseSimpleCPU::checkForInterrupts()
 
             t_info.fetchOffset = 0;
             interrupts[curThread]->updateIntrInfo();
+            synchronizeState(curThread);
             interrupt->invoke(tc);
+            // An interrupt can stop restartable microcode before its last
+            // micro-op. Fetch the handler instead of continuing that macro.
+            curMacroStaticInst = nullStaticInstPtr;
+            curStaticInst = nullStaticInstPtr;
             thread->decoder->reset();
         }
     }
@@ -532,6 +545,9 @@ BaseSimpleCPU::advancePC(const Fault &fault)
     //Since we're moving to a new pc, zero out the offset
     t_info.fetchOffset = 0;
     if (fault != NoFault) {
+        if (curStaticInst) {
+            curStaticInst->synchronizeState(threadContexts[curThread]);
+        }
         curMacroStaticInst = nullStaticInstPtr;
         fault->invoke(threadContexts[curThread], curStaticInst);
         thread->decoder->reset();

@@ -311,6 +311,7 @@ class Commit
 
     /** Sets the PC of a specific thread. */
     void pcState(const PCStateBase &val, ThreadID tid) { set(pc[tid], val); }
+    void synchronizeState(ThreadID tid);
 
   private:
     /** Time buffer interface. */
@@ -429,6 +430,7 @@ class Commit
 
     /** The sequence number of the last commited instruction. */
     InstSeqNum lastCommitedSeqNum[MaxThreads];
+    StaticInstPtr lastCommittedInst[MaxThreads];
 
     /** Records if there is a trap currently in flight. */
     bool trapInFlight[MaxThreads];

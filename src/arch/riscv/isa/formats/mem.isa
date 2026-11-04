@@ -31,6 +31,17 @@
 //
 // Memory operation instructions
 //
+def format ZimemopsOp() {{
+    decode_block = '''
+        if (!_hasZimemops || !Zimemops::validRegisters(machInst))
+            return new Unknown(machInst);
+        return new Zimemops("%s", machInst, _zimemopsUnroll, _zimemopsBytes,
+                            _zimemopsBeatBytes, _zimemopsStreaming,
+                            _zimemopsQuadBatch, _zimemopsPairControl,
+                            _zimemopsScalarThreshold);
+    ''' % name
+}};
+
 def template LoadStoreDeclare {{
     /**
      * Static instruction class for "%(mnemonic)s".

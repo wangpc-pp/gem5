@@ -1,0 +1,512 @@
+{
+    "final-verified-validation8": [
+        {
+            "case": "o3-functional",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/o3-functional/run.log"
+        },
+        {
+            "case": "o3-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/o3-traps32/run.log"
+        },
+        {
+            "case": "o3-stop-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/o3-stop-traps32/run.log"
+        },
+        {
+            "case": "o3-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/o3-traps64/run.log"
+        },
+        {
+            "case": "o3-stop-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/o3-stop-traps64/run.log"
+        },
+        {
+            "case": "o3-disabled",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/o3-disabled/run.log"
+        },
+        {
+            "case": "o3-interrupt",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/o3-interrupt/run.log"
+        },
+        {
+            "case": "o3-interrupt-mmove",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/o3-interrupt-mmove/run.log"
+        },
+        {
+            "case": "o3-interrupt-mset",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/o3-interrupt-mset/run.log"
+        },
+        {
+            "case": "atomic-functional",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/atomic-functional/run.log"
+        },
+        {
+            "case": "atomic-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/atomic-traps32/run.log"
+        },
+        {
+            "case": "atomic-stop-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/atomic-stop-traps32/run.log"
+        },
+        {
+            "case": "atomic-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/atomic-traps64/run.log"
+        },
+        {
+            "case": "atomic-stop-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/atomic-stop-traps64/run.log"
+        },
+        {
+            "case": "atomic-disabled",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/atomic-disabled/run.log"
+        },
+        {
+            "case": "atomic-interrupt",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/atomic-interrupt/run.log"
+        },
+        {
+            "case": "atomic-interrupt-mmove",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/atomic-interrupt-mmove/run.log"
+        },
+        {
+            "case": "atomic-interrupt-mset",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/atomic-interrupt-mset/run.log"
+        },
+        {
+            "case": "timing-functional",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/timing-functional/run.log"
+        },
+        {
+            "case": "timing-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/timing-traps32/run.log"
+        },
+        {
+            "case": "timing-stop-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/timing-stop-traps32/run.log"
+        },
+        {
+            "case": "timing-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/timing-traps64/run.log"
+        },
+        {
+            "case": "timing-stop-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/timing-stop-traps64/run.log"
+        },
+        {
+            "case": "timing-disabled",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/timing-disabled/run.log"
+        },
+        {
+            "case": "timing-interrupt",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/timing-interrupt/run.log"
+        },
+        {
+            "case": "timing-interrupt-mmove",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/timing-interrupt-mmove/run.log"
+        },
+        {
+            "case": "timing-interrupt-mset",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation8/timing-interrupt-mset/run.log"
+        }
+    ],
+    "final-verified-validation0": [
+        {
+            "case": "o3-functional",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/o3-functional/run.log"
+        },
+        {
+            "case": "o3-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/o3-traps32/run.log"
+        },
+        {
+            "case": "o3-stop-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/o3-stop-traps32/run.log"
+        },
+        {
+            "case": "o3-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/o3-traps64/run.log"
+        },
+        {
+            "case": "o3-stop-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/o3-stop-traps64/run.log"
+        },
+        {
+            "case": "o3-disabled",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/o3-disabled/run.log"
+        },
+        {
+            "case": "o3-interrupt",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/o3-interrupt/run.log"
+        },
+        {
+            "case": "o3-interrupt-mmove",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/o3-interrupt-mmove/run.log"
+        },
+        {
+            "case": "o3-interrupt-mset",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/o3-interrupt-mset/run.log"
+        },
+        {
+            "case": "atomic-functional",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/atomic-functional/run.log"
+        },
+        {
+            "case": "atomic-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/atomic-traps32/run.log"
+        },
+        {
+            "case": "atomic-stop-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/atomic-stop-traps32/run.log"
+        },
+        {
+            "case": "atomic-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/atomic-traps64/run.log"
+        },
+        {
+            "case": "atomic-stop-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/atomic-stop-traps64/run.log"
+        },
+        {
+            "case": "atomic-disabled",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/atomic-disabled/run.log"
+        },
+        {
+            "case": "atomic-interrupt",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/atomic-interrupt/run.log"
+        },
+        {
+            "case": "atomic-interrupt-mmove",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/atomic-interrupt-mmove/run.log"
+        },
+        {
+            "case": "atomic-interrupt-mset",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/atomic-interrupt-mset/run.log"
+        },
+        {
+            "case": "timing-functional",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/timing-functional/run.log"
+        },
+        {
+            "case": "timing-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/timing-traps32/run.log"
+        },
+        {
+            "case": "timing-stop-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/timing-stop-traps32/run.log"
+        },
+        {
+            "case": "timing-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/timing-traps64/run.log"
+        },
+        {
+            "case": "timing-stop-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/timing-stop-traps64/run.log"
+        },
+        {
+            "case": "timing-disabled",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/timing-disabled/run.log"
+        },
+        {
+            "case": "timing-interrupt",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/timing-interrupt/run.log"
+        },
+        {
+            "case": "timing-interrupt-mmove",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/timing-interrupt-mmove/run.log"
+        },
+        {
+            "case": "timing-interrupt-mset",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-verified-validation0/timing-interrupt-mset/run.log"
+        }
+    ],
+    "final-config-validation": [
+        {
+            "case": "vlen128-quad-o3-stop-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/vlen128-quad-o3-stop-traps32/run.log"
+        },
+        {
+            "case": "vlen128-quad-o3-stop-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/vlen128-quad-o3-stop-traps64/run.log"
+        },
+        {
+            "case": "vlen128-quad-atomic-stop-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/vlen128-quad-atomic-stop-traps32/run.log"
+        },
+        {
+            "case": "vlen128-quad-atomic-stop-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/vlen128-quad-atomic-stop-traps64/run.log"
+        },
+        {
+            "case": "vlen128-quad-timing-stop-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/vlen128-quad-timing-stop-traps32/run.log"
+        },
+        {
+            "case": "vlen128-quad-timing-stop-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/vlen128-quad-timing-stop-traps64/run.log"
+        },
+        {
+            "case": "irregular17-pair-o3-stop-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/irregular17-pair-o3-stop-traps32/run.log"
+        },
+        {
+            "case": "irregular17-pair-o3-stop-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/irregular17-pair-o3-stop-traps64/run.log"
+        },
+        {
+            "case": "irregular17-pair-atomic-stop-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/irregular17-pair-atomic-stop-traps32/run.log"
+        },
+        {
+            "case": "irregular17-pair-atomic-stop-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/irregular17-pair-atomic-stop-traps64/run.log"
+        },
+        {
+            "case": "irregular17-pair-timing-stop-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/irregular17-pair-timing-stop-traps32/run.log"
+        },
+        {
+            "case": "irregular17-pair-timing-stop-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/irregular17-pair-timing-stop-traps64/run.log"
+        },
+        {
+            "case": "byte1-vector-o3-stop-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/byte1-vector-o3-stop-traps32/run.log"
+        },
+        {
+            "case": "byte1-vector-o3-stop-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/byte1-vector-o3-stop-traps64/run.log"
+        },
+        {
+            "case": "byte1-vector-atomic-stop-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/byte1-vector-atomic-stop-traps32/run.log"
+        },
+        {
+            "case": "byte1-vector-atomic-stop-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/byte1-vector-atomic-stop-traps64/run.log"
+        },
+        {
+            "case": "byte1-vector-timing-stop-traps32",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/byte1-vector-timing-stop-traps32/run.log"
+        },
+        {
+            "case": "byte1-vector-timing-stop-traps64",
+            "passed": true,
+            "returncode": 0,
+            "log":
+                "/tmp/zimemops-store-pair/final-config-validation/byte1-vector-timing-stop-traps64/run.log"
+        }
+    ]
+}

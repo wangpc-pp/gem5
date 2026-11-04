@@ -290,6 +290,13 @@ class SimpleExecContext : public ExecContext
         thread->pcState(val);
     }
 
+    unsigned
+    maxMemAccessSize() const override
+    {
+        // TimingSimpleCPU supports at most two line fragments per request.
+        return cpu->cacheLineSize();
+    }
+
     Fault
     readMem(Addr addr, uint8_t *data, unsigned int size,
             Request::Flags flags,

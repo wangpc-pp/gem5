@@ -298,6 +298,11 @@ class CPU : public BaseCPU
 
     /** Processes any an interrupt fault. */
     void processInterrupts(const Fault &interrupt);
+    void
+    synchronizeState(ThreadID tid) override
+    {
+        commit.synchronizeState(tid);
+    }
 
     /** Halts the CPU. */
     void halt() { panic("Halt not implemented!\n"); }

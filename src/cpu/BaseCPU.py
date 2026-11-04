@@ -70,6 +70,7 @@ class BaseCPU(ClockedObject):
         PyBindMethod("totalInsts"),
         PyBindMethod("scheduleInstStop"),
         PyBindMethod("getCurrentInstCount"),
+        PyBindMethod("synchronizeState"),
         PyBindMethod("scheduleSimpointsInstStop"),
         PyBindMethod("scheduleInstStopAnyThread"),
     ]

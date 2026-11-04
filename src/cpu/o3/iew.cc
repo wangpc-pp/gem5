@@ -1363,8 +1363,11 @@ IEW::executeInsts()
                 } else {
                     iewStats.predictedNotTakenIncorrect++;
                 }
-            } else if (ldstQueue.violation(tid)) {
-                assert(inst->isMemRef());
+            }
+            // A memory micro-op can also redirect microcode. Consume its
+            // ordering violation even when it just requested a branch
+            // squash, so the signal cannot leak to a following ALU op.
+            if (inst->isMemRef() && ldstQueue.violation(tid)) {
                 // If there was an ordering violation, then get the
                 // DynInst that caused the violation.  Note that this
                 // clears the violation signal.

@@ -134,6 +134,7 @@ class BaseSimpleCPU : public BaseCPU
 
   public:
     void checkForInterrupts();
+    void synchronizeState(ThreadID tid) override;
     void setupFetchRequest(const RequestPtr &req);
     void serviceInstCountEvents();
     void preExecute();

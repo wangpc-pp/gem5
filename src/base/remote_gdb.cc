@@ -609,7 +609,7 @@ BaseRemoteGDB::trap(ContextID id, GDBSignal sig,const std::string& stopReason)
             return;
     }
 
-
+    tc->getCpuPtr()->synchronizeState(tc->threadId());
     DPRINTF(GDBMisc, "trap: PC=%s\n", tc->pcState());
 
     clearSingleStep();

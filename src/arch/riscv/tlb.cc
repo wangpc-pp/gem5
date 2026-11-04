@@ -656,7 +656,7 @@ TLB::translateAtomic(const RequestPtr &req, ThreadContext *tc,
                      BaseMMU::Mode mode)
 {
     bool delayed;
-    return translate(req, tc, nullptr, mode, delayed);
+    return zimemopsFault(translate(req, tc, nullptr, mode, delayed), req);
 }
 
 void
@@ -667,7 +667,7 @@ TLB::translateTiming(const RequestPtr &req, ThreadContext *tc,
     assert(translation);
     Fault fault = translate(req, tc, translation, mode, delayed);
     if (!delayed)
-        translation->finish(fault, req, tc, mode);
+        translation->finish(zimemopsFault(fault, req), req, tc, mode);
     else
         translation->markDelayed();
 }
@@ -729,6 +729,18 @@ TLB::finalizePhysical(const RequestPtr &req,
 {
     const Addr paddr = req->getPaddr();
     const auto &m5opRange = tc->getSystemPtr()->m5opRange();
+
+    if (req->getArchFlags() & XlateFlags::ZIMEMOPS) {
+        for (unsigned i = 0; i < req->getSize(); ++i) {
+            if (m5opRange.contains(paddr + i) ||
+                !tc->getSystemPtr()->isMemAddr(paddr + i)) {
+                return std::make_shared<AddressFault>(
+                    req->getVaddr() + i, mode == BaseMMU::Read
+                                             ? ExceptionCode::LOAD_ACCESS
+                                             : ExceptionCode::STORE_ACCESS);
+            }
+        }
+    }
 
     if (m5opRange.contains(paddr)) {
         const bool rv32 =

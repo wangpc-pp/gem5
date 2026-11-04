@@ -291,8 +291,20 @@ class StaticInst : public RefCounted, public StaticInstFlags
   public:
     virtual ~StaticInst() {};
 
+    /** Publish implementation-private progress before observing a stop. */
+    virtual void
+    synchronizeState(ThreadContext *) const
+    {}
+
+    /** Lookup key for branch state; targets retain the architectural PC. */
+    virtual Addr
+    branchPredictionAddr(const PCStateBase &pc) const
+    {
+        return pc.instAddr();
+    }
+
     virtual Fault execute(ExecContext *xc,
-            trace::InstRecord *traceData) const = 0;
+                          trace::InstRecord *traceData) const = 0;
 
     virtual Fault
     initiateAcc(ExecContext *xc, trace::InstRecord *traceData) const
